@@ -1,0 +1,26 @@
+{
+    "[csharp]": {
+        "editor.defaultFormatter": "Leopotam.csharpfixformat"
+    },
+    "[sql]": {
+        "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    },
+    "editor.formatOnSave": true,
+    "mssql.connections": [
+        {
+            "profileName": "sqlsrv_Database1",
+            "database": "Database1",
+            "password": "",
+            "server": "localhost",
+            "authenticationType": "Integrated"
+        }
+    ],
+    "mssql.format.datatypeCasing": "lowercase",
+    "mssql.format.keywordCasing": "uppercase",
+    "mssql.format.placeSelectStatementReferencesOnNewLine": true,
+    "sql-formatter.dialect": "pl/sql",
+    "sql-formatter.uppercase": true,
+    "csharpfixformat.style.spaces.beforeParenthesis": false,
+    "csharpfixformat.style.spaces.insideEmptyBraces": false,
+    "csharpfixformat.style.spaces.beforeIndexerBracket": false
+}

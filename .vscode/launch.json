@@ -1,0 +1,29 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Launch (console)",
+            "type": "clr",
+            "request": "launch",
+            "preLaunchTask": "build src",
+            "program": "${workspaceFolder}/src/bin/Debug/net47/${workspaceFolderBasename}.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/src",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "logging": {
+                // "シンボルの読み込みをスキップしました。" がうるさい
+                "moduleLoad": false
+            },
+        },
+        {
+            "name": ".NET Attach",
+            "type": "clr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ],
+}
