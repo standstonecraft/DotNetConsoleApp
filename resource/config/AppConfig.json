@@ -1,0 +1,8 @@
+{
+    "Database": [
+        {
+            "Profile": "DEV",
+            "ConnectionString": "Data Source=localhost;Initial Catalog=Database1;Connect Timeout=60;Persist Security Info=True;User ID=user1;Password=password"
+        }
+    ]
+}

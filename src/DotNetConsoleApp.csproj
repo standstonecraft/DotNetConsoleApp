@@ -5,4 +5,8 @@
     <TargetFramework>net47</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- プロジェクトファイルからの相対パスresources\hello.txtのファイルをリソースとして埋め込む -->
+    <EmbeddedResource Include="sql\*.sql" />
+  </ItemGroup>
 </Project>
