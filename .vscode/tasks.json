@@ -82,7 +82,10 @@
                 "test"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/test"
+                "cwd": "${workspaceFolder}/test",
+                "env": {
+                    "DNCA_STAGE": "TEST"
+                }
             },
             "group": {
                 "kind": "test",

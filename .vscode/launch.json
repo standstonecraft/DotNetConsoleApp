@@ -18,6 +18,9 @@
                 // "シンボルの読み込みをスキップしました。" がうるさい
                 "moduleLoad": false
             },
+            "env": {
+                "DNCA_STAGE": "DEV"
+            }
         },
         {
             "name": ".NET Attach",
