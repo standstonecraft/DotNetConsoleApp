@@ -55,6 +55,8 @@
                 "publish",
                 "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
                 "/property:GenerateFullPaths=true",
+                "/property:DebugType=None",
+                "/property:DebugSymbols=false",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
