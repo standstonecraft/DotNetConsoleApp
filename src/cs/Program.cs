@@ -2,10 +2,7 @@
 
 namespace DotNetConsoleApp {
     class Program {
-        static void Main(string[] args) {
-            if (!(args is null)) {
-                throw new ArgumentOutOfRangeException();
-            }
+        static void Main() {
 
             Console.WriteLine("Hello World!");
             // 環境変数からステージを取得（launch.json や tasks.json で設定）
