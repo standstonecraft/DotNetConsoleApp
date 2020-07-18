@@ -8,7 +8,8 @@
     "csharp.semanticHighlighting.enabled": true,
     "csharp.unitTestDebuggingOptions": {
         "logging": {
-            "moduleLoad": true
+            "engineLogging": true,
+            "moduleLoad": false
         },
         "type": "clr"
     },
