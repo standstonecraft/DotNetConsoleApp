@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
+using Dapper;
 
 namespace DotNetConsoleApp {
     class Program {
@@ -17,6 +18,7 @@ namespace DotNetConsoleApp {
             Console.WriteLine("[AppConfig.json]connection string of profile 'DEV': " + configContent);
             string msg = IntPtr.Size == 4 ? "32ビットで動作しています" : "64ビットで動作しています";
             Console.WriteLine(msg);
+            Console.WriteLine("table1 count: " + SqlUtil.DefaultConnection.Query("select * from Database1.dbo.table1").AsList().Count);
         }
 
     }
