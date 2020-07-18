@@ -9,7 +9,8 @@
                 "build",
                 "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "--nologo"
             ],
             "problemMatcher": "$msCompile",
             "group": "build",
@@ -31,7 +32,8 @@
                 "build",
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "--nologo"
             ],
             "problemMatcher": "$msCompile",
             "group": {
@@ -57,7 +59,8 @@
                 "/property:GenerateFullPaths=true",
                 "/property:DebugType=None",
                 "/property:DebugSymbols=false",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "--nologo"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -70,7 +73,8 @@
                 "run",
                 "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "--nologo"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -79,7 +83,9 @@
             "command": "dotnet",
             "type": "process",
             "args": [
-                "test"
+                "test",
+                "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
+                "--nologo",
             ],
             "options": {
                 "cwd": "${workspaceFolder}",
