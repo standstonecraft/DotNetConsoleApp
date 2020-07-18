@@ -9,4 +9,9 @@
     <!-- プロジェクトファイルからの相対パスresources\hello.txtのファイルをリソースとして埋め込む -->
     <EmbeddedResource Include="sql\*.sql" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="NLog" Version="4.7.2" />
+  </ItemGroup>
 </Project>
