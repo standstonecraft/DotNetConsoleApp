@@ -24,13 +24,13 @@ namespace DotNetConsoleApp {
             string dir;
             switch (GetStage()) {
                 case "DEV":
-                    dir = Directory.GetCurrentDirectory() + "/";
+                    dir = Directory.GetCurrentDirectory() + "./";
                     break;
                 case "TEST":
                     dir = Directory.GetCurrentDirectory() + "../../../../../";
                     break;
                 case "PROD":
-                    dir = Directory.GetCurrentDirectory() + "/";
+                    dir = Directory.GetCurrentDirectory() + "./";
                     break;
                 default:
                     // test in contextコマンドでは環境変数がセットされていないためTESTとみなす
