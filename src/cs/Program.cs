@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using System.Text.RegularExpressions;
 
 namespace DotNetConsoleApp {
     class Program {
@@ -11,7 +11,7 @@ namespace DotNetConsoleApp {
             Console.WriteLine($"[env]stage: {stage}");
             // プロジェクトに埋め込まれたファイルの取得
             string content = ComUtil.GetEmbeddedFileContent("sql/embedded.sql");
-            Console.WriteLine("[embedded file]embedded.sql: " + content.Replace("\r\n", " "));
+            Console.WriteLine("[embedded file]embedded.sql: " + Regex.Replace(content, @"\r?\n", " "));
             // 設定ファイルの取得
             string configContent = ConfigUtil.GetAppConfig().Database.Find(d => d.Profile == "DEV").ConnectionString;
             Console.WriteLine("[AppConfig.json]connection string of profile 'DEV': " + configContent);
