@@ -11,6 +11,9 @@ namespace DotNetConsoleApp {
             DefaultTypeMap.MatchNamesWithUnderscores = true;
         }
 
+        /// <summary>
+        /// <see cref="GenerateTableDao(string, string, DynamicParameters)" />で使用するクラス
+        /// </summary>
         class TableColumn {
             public string Name { get; set; }
             public string SystemTypeName { get; set; }
