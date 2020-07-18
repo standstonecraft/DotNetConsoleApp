@@ -19,6 +19,9 @@
     "dotnet-test-explorer.testArguments": "-- RunConfiguration.TargetPlatform=x64",
     "dotnet-test-explorer.testProjectPath": "**/*Test.csproj",
     "editor.formatOnSave": true,
+    "files.associations": {
+        "*.runsettings": "xml"
+    },
     "files.exclude": {
         "*/bin": true,
         "*/obj": true
@@ -38,5 +41,6 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
     "sql-formatter.dialect": "pl/sql",
-    "sql-formatter.uppercase": true
+    "sql-formatter.uppercase": true,
+    "window.zoomLevel": -1
 }
