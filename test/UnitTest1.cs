@@ -1,4 +1,5 @@
 using System;
+using Dapper;
 using Xunit;
 
 namespace DotNetConsoleApp.Test {
@@ -30,13 +31,19 @@ namespace DotNetConsoleApp.Test {
 
         [Fact]
         public void AppConfigTest() {
-            Assert.Equal("DEV", ConfigUtil.GetAppConfig().Database[0].Profile);
+            Assert.Equal("DEV", ConfigUtil.AppConfig.Database[0].Profile);
         }
 
         [Fact]
         public void X64Test() {
             string msg = IntPtr.Size == 4 ? "32ビットで動作しています" : "64ビットで動作しています";
             Assert.Equal("64ビットで動作しています", msg);
+        }
+
+        [Fact]
+        public void SqlTest() {
+            SqlUtil.DefaultConnection.Query("select * from Database1.dbo.table1");
+            // no exception
         }
 
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
 namespace DotNetConsoleApp {
@@ -13,7 +13,7 @@ namespace DotNetConsoleApp {
             string content = ComUtil.GetEmbeddedFileContent("sql/embedded.sql");
             Console.WriteLine("[embedded file]embedded.sql: " + Regex.Replace(content, @"\r?\n", " "));
             // 設定ファイルの取得
-            string configContent = ConfigUtil.GetAppConfig().Database.Find(d => d.Profile == "DEV").ConnectionString;
+            string configContent = ConfigUtil.AppConfig.Database.Find(d => d.Profile == "DEV").ConnectionString;
             Console.WriteLine("[AppConfig.json]connection string of profile 'DEV': " + configContent);
             string msg = IntPtr.Size == 4 ? "32ビットで動作しています" : "64ビットで動作しています";
             Console.WriteLine(msg);

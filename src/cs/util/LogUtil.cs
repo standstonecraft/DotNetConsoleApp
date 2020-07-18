@@ -4,8 +4,12 @@ using NLog.Targets;
 namespace DotNetConsoleApp {
 
     public sealed class LogUtil {
-        public static Logger logger = LogManager.GetCurrentClassLogger();
+        /// <summary>シングルトンなロガーオブジェクト</summary>
+        public static readonly Logger Log;
 
+        /// <summary>
+        /// スタティックイニシャライザ(このクラスへの初めてのアクセス時に実行される)
+        /// </summary>
         static LogUtil() {
             LoggingConfiguration conf = new LoggingConfiguration();
             //ファイル出力定義
@@ -27,6 +31,8 @@ namespace DotNetConsoleApp {
 
             // 設定を反映する
             LogManager.Configuration = conf;
+
+            Log = LogManager.GetCurrentClassLogger();
         }
     }
 }

@@ -6,9 +6,22 @@ using System.IO;
 using System.Text;
 using Dapper;
 namespace DotNetConsoleApp {
-    class SqlUtil {
+    public class SqlUtil {
+        /// <summary>シングルトンな接続オブジェクト(オープン済み)</summary>
+        public static readonly SqlConnection DefaultConnection;
+
+        /// <summary>
+        /// スタティックイニシャライザ(このクラスへの初めてのアクセス時に実行される)
+        /// </summary>
         static SqlUtil() {
+            // SELECT 文の列名と DAO をマッピングする際にアンダースコアを無視する
             DefaultTypeMap.MatchNamesWithUnderscores = true;
+
+            // シングルトンオブジェクトを初期化する
+            AppConfigJson config = ConfigUtil.AppConfig;
+            string conStr = config.Database.Find(p => p.Profile == ComUtil.GetStage()).ConnectionString;
+            DefaultConnection = new SqlConnection(conStr);
+            DefaultConnection.Open();
         }
 
         /// <summary>
@@ -18,22 +31,20 @@ namespace DotNetConsoleApp {
             public string Name { get; set; }
             public string SystemTypeName { get; set; }
         }
-        /// <summary>シングルトンな接続オブジェクト</summary>
-        private static SqlConnection connection = null;
 
         /// <summary>
-        /// データベースへの接続オブジェクトを取得します。  
-        /// シングルトンオブジェクトを使いまわすため、オープンやクローズを都度実行しないでください。
+        /// データベースへの接続を取得しオープンした状態で返します。  
         /// </summary>
-        public static SqlConnection GetConnection() {
-            // なければ作る
-            if (connection == null) {
-                AppConfig config = ConfigUtil.GetAppConfig();
-                string conStr = config.Database.Find(p => p.Profile == ComUtil.GetStage()).ConnectionString;
-                connection = new SqlConnection(conStr);
-                connection.Open();
-            }
-            return connection;
+        /// <param name="profile">AppConfig.json に定義されているプロファイルの名前</param>
+        /// <returns></returns>
+        public static SqlConnection GetConnection(string profile) {
+            SqlConnection con;
+            AppConfigJson config = ConfigUtil.AppConfig;
+            string conStr = config.Database.Find(p => p.Profile == profile).ConnectionString;
+            con = new SqlConnection(conStr);
+            con.Open();
+
+            return con;
         }
 
         /// <summary>
@@ -69,12 +80,11 @@ namespace DotNetConsoleApp {
         public static string GenerateTableDao(string daoName, string query, DynamicParameters sqlParams) {
             string sql = $"DECLARE @query nvarchar(max) = '{query.Replace("'","''")}';EXEC sp_describe_first_result_set @query, null, 0;";
 
-            SqlConnection con = GetConnection();
             IEnumerable < TableColumn > enumerable;
             if (sqlParams is null) {
-                enumerable = con.Query < TableColumn > (sql);
+                enumerable = DefaultConnection.Query < TableColumn > (sql);
             } else {
-                enumerable = con.Query < TableColumn > (sql, sqlParams);
+                enumerable = DefaultConnection.Query < TableColumn > (sql, sqlParams);
             }
 
             string pascalDaoName = ToPascalCase(daoName);

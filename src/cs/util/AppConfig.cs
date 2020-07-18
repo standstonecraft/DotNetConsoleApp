@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace DotNetConsoleApp {
     [DataContract]
-    public sealed class AppConfig {
+    public sealed class AppConfigJson {
         [DataMember]
         public List<DatabaseConfig> Database { get; set; }
 
