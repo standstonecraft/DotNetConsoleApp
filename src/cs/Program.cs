@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace DotNetConsoleApp {
     class Program {
@@ -14,6 +15,8 @@ namespace DotNetConsoleApp {
             // 設定ファイルの取得
             string configContent = ConfigUtil.GetAppConfig().Database.Find(d => d.Profile == "DEV").ConnectionString;
             Console.WriteLine("[AppConfig.json]connection string of profile 'DEV': " + configContent);
+            string msg = IntPtr.Size == 4 ? "32ビットで動作しています" : "64ビットで動作しています";
+            Console.WriteLine(msg);
         }
 
     }

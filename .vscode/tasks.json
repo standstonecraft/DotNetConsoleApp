@@ -86,6 +86,8 @@
                 "test",
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
                 "--nologo",
+                "--",
+                "RunConfiguration.TargetPlatform=x64"
             ],
             "options": {
                 "cwd": "${workspaceFolder}",
