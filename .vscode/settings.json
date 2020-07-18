@@ -7,12 +7,11 @@
     },
     "csharp.semanticHighlighting.enabled": true,
     "csharp.unitTestDebuggingOptions": {
-        "type": "clr",
         "logging": {
             "moduleLoad": true
-        }
+        },
+        "type": "clr"
     },
-    "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
     "csharpfixformat.style.newline.atEnd": true,
     "csharpfixformat.style.spaces.beforeIndexerBracket": false,
     "csharpfixformat.style.spaces.beforeParenthesis": false,
@@ -20,6 +19,10 @@
     "dotnet-test-explorer.testArguments": "-- RunConfiguration.TargetPlatform=x64",
     "dotnet-test-explorer.testProjectPath": "**/*Test.csproj",
     "editor.formatOnSave": true,
+    "files.exclude": {
+        "*/bin": true,
+        "*/obj": true
+    },
     "mssql.connections": [
         {
             "authenticationType": "Integrated",
@@ -33,10 +36,7 @@
     "mssql.format.keywordCasing": "uppercase",
     "mssql.format.placeSelectStatementReferencesOnNewLine": true,
     "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
     "sql-formatter.dialect": "pl/sql",
-    "sql-formatter.uppercase": true,
-    "files.exclude": {
-        "*/bin": false,
-        "*/obj": false
-    },
+    "sql-formatter.uppercase": true
 }
