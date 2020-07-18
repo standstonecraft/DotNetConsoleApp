@@ -16,8 +16,6 @@
     "csharpfixformat.style.spaces.beforeIndexerBracket": false,
     "csharpfixformat.style.spaces.beforeParenthesis": false,
     "csharpfixformat.style.spaces.insideEmptyBraces": false,
-    "dotnet-test-explorer.testArguments": "-- RunConfiguration.TargetPlatform=x64",
-    "dotnet-test-explorer.testProjectPath": "**/*Test.csproj",
     "editor.formatOnSave": true,
     "files.associations": {
         "*.runsettings": "xml"
