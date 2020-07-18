@@ -11,7 +11,7 @@
             "preLaunchTask": "build src",
             "program": "${workspaceFolder}/src/bin/Debug/net47/${workspaceFolderBasename}.exe",
             "args": [],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false,
             "logging": {
