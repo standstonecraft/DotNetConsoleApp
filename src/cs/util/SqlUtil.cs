@@ -56,6 +56,11 @@ namespace DotNetConsoleApp {
             return ComUtil.GetEmbeddedFileContent($"sql/{name}.sql");
         }
 
+        /// <summary>
+        /// SQL ファイルから DAO を生成します。
+        /// </summary>
+        /// <param name="sqlFileName">sql フォルダ内の SQL の名前(フォルダ名及び拡張子なし)</param>
+        /// <returns>DAO の文字列</returns>
         public static string GenerateTableDao(string sqlFileName) {
             return GenerateTableDao(sqlFileName, LoadSqlFile(sqlFileName), null);
         }

@@ -5,7 +5,17 @@ using System.Text.RegularExpressions;
 
 namespace DotNetConsoleApp {
     public static class ComUtil {
+        /// <summary>
+        /// ステージングを指定する環境変数の名前
+        /// </summary>
         public const string ENV_DNCA_STAGE = "DNCA_STAGE";
+
+        /// <summary>
+        /// プログラムに埋め込まれたファイルの内容を取得します。  
+        /// ファイルを埋め込むには .csproj で ItemGroup 要素に EmbeddedResource 要素を追加します。
+        /// </summary>
+        /// <param name="filePath">プログラムに埋め込まれたファイルのパス</param>
+        /// <returns>ファイルの内容</returns>
         public static string GetEmbeddedFileContent(string filePath) {
             string content;
             string asbName = Assembly.GetExecutingAssembly().GetName().Name;
@@ -16,10 +26,19 @@ namespace DotNetConsoleApp {
             return content;
         }
 
+        /// <summary>
+        /// 環境変数で指定されたステージングを取得します。
+        /// </summary>
+        /// <returns>環境変数で指定されたステージング</returns>
         public static string GetStage() {
             return Environment.GetEnvironmentVariable(ENV_DNCA_STAGE);
         }
 
+        /// <summary>
+        /// ステージングに対応したカレントディレクトリを取得します。  
+        /// (ステージング及び実行方法によって .exe の位置が異なるため)
+        /// </summary>
+        /// <returns>カレントディレクトリ</returns>
         public static string GetCurrentDir() {
             string dir;
             switch (GetStage()) {

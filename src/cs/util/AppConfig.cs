@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace DotNetConsoleApp {
+    /// <summary>
+    /// 設定ファイルの内容をマッピングするオブジェクト
+    /// </summary>
     [DataContract]
     public sealed class AppConfigJson {
         [DataMember]
