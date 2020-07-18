@@ -19,5 +19,17 @@ namespace DotNetConsoleApp {
                 }
             }
         }
+        /// <summary>
+        /// 必要な情報が設定ファイルになかった場合に使用する例外
+        /// </summary>
+        [System.Serializable]
+        public class ConfigMissingException : System.Exception {
+            public ConfigMissingException() {}
+            public ConfigMissingException(string message) : base(message) {}
+            public ConfigMissingException(string message, System.Exception inner) : base(message, inner) {}
+            protected ConfigMissingException(
+                System.Runtime.Serialization.SerializationInfo info,
+                System.Runtime.Serialization.StreamingContext context) : base(info, context) {}
+        }
     }
 }

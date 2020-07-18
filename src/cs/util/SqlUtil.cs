@@ -19,7 +19,11 @@ namespace DotNetConsoleApp {
 
             // シングルトンオブジェクトを初期化する
             AppConfigJson config = ConfigUtil.AppConfig;
-            string conStr = config.Database.Find(p => p.Profile == ComUtil.GetStage()).ConnectionString;
+            AppConfigJson.DatabaseConfig databaseConfig = config.Database.Find(p => p.Profile == ComUtil.GetStage());
+            if (databaseConfig is null) {
+                throw new ConfigUtil.ConfigMissingException($"Missing property such as Database[n].Profile='{ComUtil.GetStage()}'");
+            }
+            string conStr = databaseConfig.ConnectionString;
             DefaultConnection = new SqlConnection(conStr);
             DefaultConnection.Open();
         }
