@@ -97,6 +97,12 @@
                 "kind": "test",
                 "isDefault": true
             }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "Get-ChildItem */bin,*/obj | Remove-Item -Recurse",
+            "problemMatcher": []
         }
     ]
 }
