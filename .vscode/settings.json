@@ -26,11 +26,12 @@
     },
     "mssql.connections": [
         {
-            "authenticationType": "Integrated",
+            "authenticationType": "SqlLogin",
             "database": "Database1",
-            "password": "",
+            "password": "password",
             "profileName": "sqlsrv_Database1",
-            "server": "localhost"
+            "server": "localhost",
+            "user": "user1"
         }
     ],
     "mssql.format.datatypeCasing": "lowercase",
