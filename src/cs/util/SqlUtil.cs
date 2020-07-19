@@ -128,7 +128,7 @@ namespace DotNetConsoleApp {
             result.AppendLine("using System;");
             result.AppendLine("namespace DotNetConsoleApp.Dao");
             result.AppendLine("{");
-            result.AppendLine("    sealed class " + pascalDaoName);
+            result.AppendLine("    public sealed class " + pascalDaoName);
             result.AppendLine("    {");
             result.Append(memberSb);
             result.Append($"        public {pascalDaoName}(");
