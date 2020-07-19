@@ -48,8 +48,8 @@
         {
             "label": "build",
             "dependsOn": [
-                "buiild src",
-                "buiild test"
+                "build src",
+                "build test"
             ],
             "dependsOrder": "sequence",
             "type": "shell",
