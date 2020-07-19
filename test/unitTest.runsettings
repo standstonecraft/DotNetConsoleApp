@@ -66,14 +66,9 @@
                     <Verbosity>quiet</Verbosity>
                 </Configuration>
             </Logger>
-            <Logger friendlyName="trx" enabled="True">
-                <Configuration>
-                    <LogFileName>foo.trx</LogFileName>
-                </Configuration>
-            </Logger>
             <Logger friendlyName="html" enabled="True">
                 <Configuration>
-                    <LogFileName>foo.html</LogFileName>
+                    <LogFileName>TestResults.html</LogFileName>
                 </Configuration>
             </Logger>
             <Logger friendlyName="blame" enabled="True" />
