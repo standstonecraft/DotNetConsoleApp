@@ -77,6 +77,12 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "clean build result",
+            "type": "shell",
+            "command": "Get-ChildItem */bin,*/obj | Remove-Item -Recurse",
+            "problemMatcher": []
+        },
+        {
             "label": "clean test result",
             "type": "shell",
             "command": "Remove-Item ./test/TestResults -Recurse",
@@ -146,12 +152,6 @@
                 "showReuseMessage": true,
                 "clear": false
             }
-        },
-        {
-            "label": "clean build result",
-            "type": "shell",
-            "command": "Get-ChildItem */bin,*/obj | Remove-Item -Recurse",
-            "problemMatcher": []
         }
     ]
 }
