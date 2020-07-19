@@ -16,11 +16,11 @@
             "group": "build",
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
+                "reveal": "always",
                 "focus": false,
                 "panel": "shared",
                 "showReuseMessage": true,
-                "clear": false
+                "clear": true
             }
         },
         {
@@ -35,15 +35,7 @@
                 "--nologo"
             ],
             "problemMatcher": "$msCompile",
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            }
+            "group": "build"
         },
         {
             "label": "build",
@@ -61,8 +53,8 @@
             },
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
-                "focus": false,
+                "reveal": "always",
+                "focus": true,
                 "panel": "shared",
                 "showReuseMessage": true,
                 "clear": false
@@ -103,7 +95,15 @@
             "type": "shell",
             "command": "Remove-Item ./test/TestResults -Recurse",
             "problemMatcher": [],
-            "group": "test"
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
         },
         {
             "label": "run test",
@@ -151,6 +151,14 @@
             "group": {
                 "kind": "test",
                 "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
             }
         },
         {
