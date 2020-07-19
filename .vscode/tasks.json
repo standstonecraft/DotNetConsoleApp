@@ -77,20 +77,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "watch",
-                "run",
-                "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "--nologo"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "clean test result",
             "type": "shell",
             "command": "Remove-Item ./test/TestResults -Recurse",
