@@ -98,7 +98,7 @@
         {
             "label": "clean test result",
             "type": "shell",
-            "command": "Remove-Item ./test/TestResults -Recurse",
+            "command": "if(Test-Path ./test/TestResults){Remove-Item ./test/TestResults -Recurse}",
             "problemMatcher": [],
             "group": "test",
             "presentation": {
