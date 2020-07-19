@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Dapper;
 using Xunit;
 
@@ -44,6 +46,24 @@ namespace DotNetConsoleApp.Test {
         public void SqlTest() {
             SqlUtil.DefaultConnection.Query("select * from Database1.dbo.table1");
             // no exception
+        }
+
+        /// <summary>
+        /// クラスにEqualsを実装する方法
+        /// - 対象クラスのエディタ上でクラス名にカーソルを合わせて Ctrl + .
+        /// - 「Equals 及び GetHashCode を生成する」を選択する
+        /// </summary>
+        [Fact]
+        public void ObjectCollectionEqualsTest() {
+            List<Dao.Table1> t1 = new List<Dao.Table1>();
+            List<Dao.Table1> t2 = new List<Dao.Table1>();
+            for (int i = 0; i < 5; i++) {
+                Dao.Table1 r1 = new Dao.Table1(i, $"{i}_str");
+                t1.Add(r1);
+                Dao.Table1 r2 = new Dao.Table1(i, $"{i}_str");
+                t2.Add(r2);
+            }
+            Assert.Equal(t1, t2);
         }
 
     }
