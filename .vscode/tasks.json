@@ -3,8 +3,8 @@
     "tasks": [
         {
             "label": "build src",
-            "command": "dotnet",
             "type": "process",
+            "command": "dotnet",
             "args": [
                 "build",
                 "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
@@ -25,8 +25,8 @@
         },
         {
             "label": "build test",
-            "command": "dotnet",
             "type": "process",
+            "command": "dotnet",
             "args": [
                 "build",
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
@@ -70,8 +70,9 @@
         },
         {
             "label": "publish",
-            "command": "dotnet",
+            "detail": "デバッグ情報なしで出力します。",
             "type": "process",
+            "command": "dotnet",
             "args": [
                 "publish",
                 "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
@@ -85,8 +86,8 @@
         },
         {
             "label": "watch",
-            "command": "dotnet",
             "type": "process",
+            "command": "dotnet",
             "args": [
                 "watch",
                 "run",
@@ -106,8 +107,8 @@
         },
         {
             "label": "run test",
-            "command": "dotnet",
             "type": "process",
+            "command": "dotnet",
             "args": [
                 "test",
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
@@ -130,10 +131,10 @@
             "args": [
                 "./exportCoverage.ps1"
             ],
-            "problemMatcher": [],
             "options": {
                 "cwd": "test"
             },
+            "problemMatcher": [],
             "group": "test"
         },
         {
@@ -153,7 +154,7 @@
             }
         },
         {
-            "label": "clean",
+            "label": "clean build result",
             "type": "shell",
             "command": "Get-ChildItem */bin,*/obj | Remove-Item -Recurse",
             "problemMatcher": []
