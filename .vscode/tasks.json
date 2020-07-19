@@ -58,7 +58,7 @@
             ],
             "dependsOrder": "sequence",
             "type": "shell",
-            "command": "echo Hello",
+            "command": "echo 'build done.'",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
