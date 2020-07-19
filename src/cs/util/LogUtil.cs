@@ -3,7 +3,11 @@ using NLog.Config;
 using NLog.Targets;
 namespace DotNetConsoleApp {
 
+    /// <summary>
+    /// ロガーを実装するクラス。
+    /// </summary>
     public sealed class LogUtil {
+
         /// <summary>シングルトンなロガーオブジェクト</summary>
         public static readonly Logger Log;
 

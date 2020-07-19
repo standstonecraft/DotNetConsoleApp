@@ -6,7 +6,12 @@ using System.IO;
 using System.Text;
 using Dapper;
 namespace DotNetConsoleApp {
+
+    /// <summary>
+    /// データベースへの接続および SQL 実行に関する処理を実装するクラス。
+    /// </summary>
     public class SqlUtil {
+
         /// <summary>シングルトンな接続オブジェクト(オープン済み)</summary>
         public static readonly SqlConnection DefaultConnection;
 
@@ -150,10 +155,10 @@ namespace DotNetConsoleApp {
         }
 
         /// <summary>
-        /// nvarchar(50) => "string"
+        /// nvarchar(50) => "string"  
+        /// <a href="https://docs.microsoft.com/ja-jp/dotnet/framework/data/adonet/sql-server-data-type-mappings">XML コメントによるコードの文書化 | Microsoft Docs</a>
         /// </summary>
         /// <param name="typeName">SQL Server の型の名前</param>
-        /// <seealso href="https://docs.microsoft.com/ja-jp/dotnet/framework/data/adonet/sql-server-data-type-mappings">XML コメントによるコードの文書化 | Microsoft Docs</seealso>
         /// <returns>C# の型名</returns>
         private static string ConvertTypeName(string typeName) {
             string csType;

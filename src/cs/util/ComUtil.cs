@@ -4,7 +4,12 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace DotNetConsoleApp {
+
+    /// <summary>
+    /// 共通部品を実装するクラス。特定の関心事に関する関数が複数ある場合は別のクラスに切り出すこと。
+    /// </summary>
     public static class ComUtil {
+
         /// <summary>
         /// ステージングを指定する環境変数の名前
         /// </summary>

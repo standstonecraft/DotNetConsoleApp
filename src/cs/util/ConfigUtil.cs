@@ -3,7 +3,12 @@ using System.Reflection;
 using System.Runtime.Serialization.Json;
 
 namespace DotNetConsoleApp {
+
+    /// <summary>
+    /// 設定ファイルに関する共通部品を実装するクラス。
+    /// </summary>
     public sealed class ConfigUtil {
+
         /// <summary>シングルトンな設定オブジェクト</summary>
         public static readonly AppConfigJson AppConfig;
 
@@ -19,14 +24,36 @@ namespace DotNetConsoleApp {
                 }
             }
         }
+
         /// <summary>
         /// 必要な情報が設定ファイルになかった場合に使用する例外
         /// </summary>
         [System.Serializable]
         public class ConfigMissingException : System.Exception {
+
+            /// <summary>
+            /// コンストラクタ
+            /// </summary>
             public ConfigMissingException() {}
+
+            /// <summary>
+            /// コンストラクタ
+            /// </summary>
+            /// <param name="message"></param>
             public ConfigMissingException(string message) : base(message) {}
+
+            /// <summary>
+            /// コンストラクタ
+            /// </summary>
+            /// <param name="message"></param>
+            /// <param name="inner"></param>
             public ConfigMissingException(string message, System.Exception inner) : base(message, inner) {}
+
+            /// <summary>
+            /// コンストラクタ
+            /// </summary>
+            /// <param name="info"></param>
+            /// <param name="context"></param>
             protected ConfigMissingException(
                 System.Runtime.Serialization.SerializationInfo info,
                 System.Runtime.Serialization.StreamingContext context) : base(info, context) {}
