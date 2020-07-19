@@ -25,7 +25,6 @@
         },
         {
             "label": "build test",
-            "dependsOn": "build src",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -36,6 +35,26 @@
                 "--nologo"
             ],
             "problemMatcher": "$msCompile",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "build",
+            "dependsOn": [
+                "buiild src",
+                "buiild test"
+            ],
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "command": "echo Hello",
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
