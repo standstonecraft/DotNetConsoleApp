@@ -2,6 +2,26 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "generate document",
+            "type": "process",
+            "command": "C:/Program Files/doxygen/bin/doxygen.exe",
+            "args": [
+                "Doxyfile"
+            ],
+            "options": {
+                "cwd": "document"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
             "label": "build src",
             "type": "process",
             "command": "dotnet",
@@ -13,15 +33,7 @@
                 "--nologo"
             ],
             "problemMatcher": "$msCompile",
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            }
+            "group": "build"
         },
         {
             "label": "build test",
@@ -40,6 +52,7 @@
         {
             "label": "build",
             "dependsOn": [
+                "generate document",
                 "build src",
                 "build test"
             ],
@@ -79,7 +92,7 @@
         {
             "label": "clean build result",
             "type": "shell",
-            "command": "Get-ChildItem */bin,*/obj | Remove-Item -Recurse",
+            "command": "Get-ChildItem */bin,*/obj,document/html | Remove-Item -Recurse",
             "problemMatcher": []
         },
         {
