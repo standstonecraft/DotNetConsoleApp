@@ -19,7 +19,7 @@ namespace DotNetConsoleApp.Test {
         }
 
         [Fact]
-        public void EnvVarTest() {
+        public void EnvrionmentVariableTest() {
             string stage = Environment.GetEnvironmentVariable(ComUtil.ENV_DNCA_STAGE);
             Assert.Equal("TEST", stage);
         }
