@@ -79,22 +79,55 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test",
+            "label": "clean test result",
+            "type": "shell",
+            "command": "Remove-Item ./test/TestResults -Recurse",
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "run test",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "test",
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
-                "--nologo",
-                "--",
-                "RunConfiguration.TargetPlatform=x64"
+                "--settings",
+                "test/unitTest.runsettings",
+                "--collect:\"XPlat Code Coverage\"",
+                "--nologo"
             ],
             "options": {
-                "cwd": "${workspaceFolder}",
                 "env": {
                     "DNCA_STAGE": "TEST"
                 }
             },
+            "group": "test"
+        },
+        {
+            "label": "test report coverage",
+            "type": "shell",
+            "command": ".",
+            "args": [
+                "./exportCoverage.ps1"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "test"
+            },
+            "group": "test"
+        },
+        {
+            "label": "test",
+            "dependsOn": [
+                "clean test result",
+                "run test",
+                "test report coverage"
+            ],
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "command": "echo 'test task done'",
+            "problemMatcher": [],
             "group": {
                 "kind": "test",
                 "isDefault": true
