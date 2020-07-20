@@ -2,6 +2,12 @@
     "[csharp]": {
         "editor.defaultFormatter": "Leopotam.csharpfixformat"
     },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "[sql]": {
         "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
     },
