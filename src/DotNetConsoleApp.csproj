@@ -1,18 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net47</TargetFramework>
-    <Platforms>x64</Platforms>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net47</TargetFramework>
+        <Platforms>x64</Platforms>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <!-- プロジェクトファイルからの相対パスresources\hello.txtのファイルをリソースとして埋め込む -->
-    <EmbeddedResource Include="sql\*.sql" />
-  </ItemGroup>
+    <ItemGroup>
+        <!-- プロジェクトファイルからの相対パスresources\hello.txtのファイルをリソースとして埋め込む -->
+        <EmbeddedResource Include="sql\*.sql" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.35" />
-    <PackageReference Include="NLog" Version="4.7.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.0.35" />
+        <PackageReference Include="NLog" Version="4.7.2" />
+    </ItemGroup>
 </Project>
