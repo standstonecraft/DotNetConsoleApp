@@ -28,6 +28,7 @@
     "csharpfixformat.style.spaces.insideEmptyBraces": false,
     "editor.formatOnSave": true,
     "files.associations": {
+        "Doxyfile": "ini",
         "*.runsettings": "xml"
     },
     "files.exclude": {
