@@ -53,5 +53,5 @@
     "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
     "sql-formatter.dialect": "pl/sql",
     "sql-formatter.uppercase": true,
-    "window.zoomLevel": -2
+    "window.zoomLevel": 1
 }
