@@ -5,11 +5,11 @@ using Dapper;
 using Xunit;
 
 namespace DotNetConsoleApp.Test {
-    public class UnitTest1 : IDisposable {
+    public class CommonTest : IDisposable {
         /// <summary>
         /// このクラスのテストが始まる前に実行される(setup)
         /// </summary>
-        public UnitTest1() {
+        public CommonTest() {
             Environment.SetEnvironmentVariable(ComUtil.ENV_DNCA_STAGE, "TEST");
         }
 
