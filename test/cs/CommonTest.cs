@@ -45,6 +45,18 @@ namespace DotNetConsoleApp.Test {
         }
 
         /// <summary>
+        /// テスト実行時のターゲットフレームワークの確認
+        /// </summary>
+        [Fact]
+        public void TestTargetFrameworkTest() {
+#if NET47
+            Assert.True(true);
+#else
+            Assert.True(false);
+#endif
+        }
+
+        /// <summary>
         /// クラスにEqualsを実装する方法
         /// - 対象クラスのエディタ上でクラス名にカーソルを合わせて Ctrl + .
         /// - 「Equals 及び GetHashCode を生成する」を選択する
