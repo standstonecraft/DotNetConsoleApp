@@ -28,7 +28,7 @@ namespace DotNetConsoleApp.Test {
 
         [Fact]
         public void EmbeddedFileTest() {
-            string expected = "SELECT\r\n    COL1\r\nFROM\r\n    TABLE1;";
+            string expected = "SELECT\r\n    COL1\r\nFROM\r\n    SAMPLE_TABLE;";
             string actual = ComUtil.GetEmbeddedFileContent("sql/sampleSql.sql");
             Assert.Equal(expected, actual);
         }
@@ -46,7 +46,7 @@ namespace DotNetConsoleApp.Test {
 
         [Fact]
         public void SqlTest() {
-            SqlUtil.DefaultConnection.Query("select * from Database1.dbo.table1");
+            SqlUtil.DefaultConnection.Query("select * from Database1.dbo.SampleTable");
             // no exception
         }
 
@@ -57,12 +57,12 @@ namespace DotNetConsoleApp.Test {
         /// </summary>
         [Fact]
         public void ObjectCollectionEqualsTest() {
-            List<Dao.Table1> t1 = new List<Dao.Table1>();
-            List<Dao.Table1> t2 = new List<Dao.Table1>();
+            List<Dao.SampleTable> t1 = new List<Dao.SampleTable>();
+            List<Dao.SampleTable> t2 = new List<Dao.SampleTable>();
             for (int i = 0; i < 5; i++) {
-                Dao.Table1 r1 = new Dao.Table1(i, $"{i}_str");
+                Dao.SampleTable r1 = new Dao.SampleTable(i, $"{i}_str");
                 t1.Add(r1);
-                Dao.Table1 r2 = new Dao.Table1(i, $"{i}_str");
+                Dao.SampleTable r2 = new Dao.SampleTable(i, $"{i}_str");
                 t2.Add(r2);
             }
             Assert.Equal(t1, t2);

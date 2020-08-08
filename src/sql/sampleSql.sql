@@ -1,4 +1,4 @@
 SELECT
     COL1
 FROM
-    TABLE1;
+    SAMPLE_TABLE;

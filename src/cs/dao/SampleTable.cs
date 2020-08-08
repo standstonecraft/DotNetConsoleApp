@@ -2,20 +2,20 @@ using System;
 using System.Collections.Generic;
 
 namespace DotNetConsoleApp.Dao {
-    public sealed class Table1 {
+    public sealed class SampleTable {
         /// <summary>col1:int</summary>
         public int Col1 { get; }
 
         /// <summary>col2:nvarchar(50)</summary>
         public string Col2 { get; }
 
-        public Table1(int col1, string col2) {
+        public SampleTable(int col1, string col2) {
             this.Col1 = col1;
             this.Col2 = col2;
         }
 
         public override bool Equals(object obj) {
-            return obj is Table1 table &&
+            return obj is SampleTable table &&
                 Col1 == table.Col1 &&
                 Col2 == table.Col2;
         }
