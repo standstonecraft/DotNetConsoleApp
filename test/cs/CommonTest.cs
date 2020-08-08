@@ -44,12 +44,6 @@ namespace DotNetConsoleApp.Test {
             Assert.Equal("64ビットで動作しています", msg);
         }
 
-        [Fact]
-        public void SqlTest() {
-            SqlUtil.DefaultConnection.Query("select * from Database1.dbo.SampleTable");
-            // no exception
-        }
-
         /// <summary>
         /// クラスにEqualsを実装する方法
         /// - 対象クラスのエディタ上でクラス名にカーソルを合わせて Ctrl + .
