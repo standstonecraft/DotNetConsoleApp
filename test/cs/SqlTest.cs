@@ -21,8 +21,8 @@ namespace DotNetConsoleApp.Test {
         }
 
         [Fact]
-        public void ConnectionTest() {
-            SqlUtil.DefaultConnection.Query("select * from SampleTable");
+        public void QueryRealTableTest() {
+            SqlUtil.DefaultConnection.Query("select * from SAMPLE_TABLE");
             // no exception
         }
 
