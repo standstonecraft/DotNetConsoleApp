@@ -3,6 +3,7 @@
     "tasks": [
         {
             "label": "generate document",
+            "detail": "doxygenでドキュメントを生成する",
             "type": "process",
             "command": "C:/Program Files/doxygen/bin/doxygen.exe",
             "args": [
@@ -23,6 +24,7 @@
         },
         {
             "label": "build src",
+            "detail": "ソースをコンパイルする",
             "type": "process",
             "command": "dotnet",
             "args": [
@@ -37,6 +39,7 @@
         },
         {
             "label": "build test",
+            "detail": "テストをコンパイルする",
             "type": "process",
             "command": "dotnet",
             "args": [
@@ -52,6 +55,7 @@
         },
         {
             "label": "build",
+            "detail": "ソース/テストのコンパイル、ドキュメント生成",
             "dependsOn": [
                 "generate document",
                 "build src",
@@ -76,7 +80,7 @@
         },
         {
             "label": "publish",
-            "detail": "デバッグ情報なしで出力します。",
+            "detail": "デバッグ情報なしで出力する",
             "type": "process",
             "command": "dotnet",
             "args": [
@@ -92,12 +96,14 @@
         },
         {
             "label": "clean build result",
+            "detail": "ビルド時の生成物を削除する",
             "type": "shell",
             "command": "Get-ChildItem */bin,*/obj,document/html | Remove-Item -Recurse",
             "problemMatcher": []
         },
         {
             "label": "clean test result",
+            "detail": "テスト結果をすべて削除する",
             "type": "shell",
             "command": "if(Test-Path ./test/TestResults){Remove-Item ./test/TestResults -Recurse}",
             "problemMatcher": [],
@@ -113,6 +119,7 @@
         },
         {
             "label": "run test",
+            "detail": "テストを実行する",
             "type": "process",
             "command": "dotnet",
             "args": [
@@ -133,6 +140,7 @@
         },
         {
             "label": "test report coverage",
+            "detail": "カバレッジレポートを出力する",
             "type": "shell",
             "command": ".",
             "args": [
@@ -146,6 +154,7 @@
         },
         {
             "label": "test",
+            "detail": "テストを実行する(過去の結果を削除、カバレッジレポート出力)",
             "dependsOn": [
                 "clean test result",
                 "run test",
