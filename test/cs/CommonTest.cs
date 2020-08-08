@@ -63,12 +63,12 @@ namespace DotNetConsoleApp.Test {
         /// </summary>
         [Fact]
         public void ObjectCollectionEqualsTest() {
-            List<Dao.SampleTable> t1 = new List<Dao.SampleTable>();
-            List<Dao.SampleTable> t2 = new List<Dao.SampleTable>();
+            List<Dao.SampleTableDao> t1 = new List<Dao.SampleTableDao>();
+            List<Dao.SampleTableDao> t2 = new List<Dao.SampleTableDao>();
             for (int i = 0; i < 5; i++) {
-                Dao.SampleTable r1 = new Dao.SampleTable(i, $"{i}_str");
+                Dao.SampleTableDao r1 = new Dao.SampleTableDao(i, $"{i}_str");
                 t1.Add(r1);
-                Dao.SampleTable r2 = new Dao.SampleTable(i, $"{i}_str");
+                Dao.SampleTableDao r2 = new Dao.SampleTableDao(i, $"{i}_str");
                 t2.Add(r2);
             }
             Assert.Equal(t1, t2);
