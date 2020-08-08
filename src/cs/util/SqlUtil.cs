@@ -101,7 +101,7 @@ namespace DotNetConsoleApp {
                 enumerable = DefaultConnection.Query < TableColumn > (sql, sqlParams);
             }
 
-            string pascalDaoName = ToPascalCase(daoName);
+            string pascalDaoName = daoName;
             StringBuilder paramSb = new StringBuilder();
             StringBuilder setSb = new StringBuilder();
             StringBuilder memberSb = new StringBuilder();
