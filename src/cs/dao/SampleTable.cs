@@ -2,13 +2,22 @@ using System;
 using System.Collections.Generic;
 
 namespace DotNetConsoleApp.Dao {
+
+    /// <summary>
+    /// テストで使用するサンプルテーブルのDAO
+    /// </summary>
     public sealed class SampleTable {
-        /// <summary>col1:int</summary>
+        /// <summary>COL1:int</summary>
         public int Col1 { get; }
 
-        /// <summary>col2:nvarchar(50)</summary>
+        /// <summary>COL2:nvarchar(50)</summary>
         public string Col2 { get; }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="col1"></param>
+        /// <param name="col2"></param>
         public SampleTable(int col1, string col2) {
             this.Col1 = col1;
             this.Col2 = col2;

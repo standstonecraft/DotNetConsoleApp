@@ -37,7 +37,15 @@ namespace DotNetConsoleApp {
         /// <see cref="GenerateTableDao(string, string, DynamicParameters)" />で使用するクラス
         /// </summary>
         class TableColumn {
+            /// <summary>
+            /// カラム名
+            /// </summary>
+            /// <value></value>
             public string Name { get; set; }
+            /// <summary>
+            /// DBでの型名
+            /// </summary>
+            /// <value></value>
             public string SystemTypeName { get; set; }
         }
 
