@@ -1,4 +1,0 @@
-SELECT
-    col
-FROM
-    tbl;

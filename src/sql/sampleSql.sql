@@ -1,0 +1,4 @@
+SELECT
+    COL1
+FROM
+    TABLE1;

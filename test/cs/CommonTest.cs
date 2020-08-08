@@ -28,7 +28,9 @@ namespace DotNetConsoleApp.Test {
 
         [Fact]
         public void EmbeddedFileTest() {
-            Assert.Equal("SELECT\r\n    col\r\nFROM\r\n    tbl;", ComUtil.GetEmbeddedFileContent("sql/embedded.sql"));
+            string expected = "SELECT\r\n    COL1\r\nFROM\r\n    TABLE1;";
+            string actual = ComUtil.GetEmbeddedFileContent("sql/sampleSql.sql");
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
