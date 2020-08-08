@@ -44,6 +44,7 @@
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
+                "/nowarn:msb4011",
                 "--nologo"
             ],
             "problemMatcher": "$msCompile",
@@ -117,6 +118,7 @@
             "args": [
                 "test",
                 "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
+                "/nowarn:msb4011",
                 "--settings",
                 "test/unitTest.runsettings",
                 "--collect:\"XPlat Code Coverage\"",
