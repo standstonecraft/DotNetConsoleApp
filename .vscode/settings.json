@@ -1,4 +1,8 @@
 {
+    "$desc": [
+        "VS Code のワークスペース設定。ユーザー設定よりも優先される。",
+        "コーディングスタイルやビルド方法の統一のためソースと一緒に管理している。"
+    ],
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
@@ -49,6 +53,7 @@
     "mssql.format.datatypeCasing": "lowercase",
     "mssql.format.keywordCasing": "uppercase",
     "mssql.format.placeSelectStatementReferencesOnNewLine": true,
+    "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
     "sql-formatter.dialect": "pl/sql",
