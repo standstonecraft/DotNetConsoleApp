@@ -26,10 +26,6 @@
         },
         "type": "clr"
     },
-    "csharpfixformat.style.newline.atEnd": true,
-    "csharpfixformat.style.spaces.beforeIndexerBracket": false,
-    "csharpfixformat.style.spaces.beforeParenthesis": false,
-    "csharpfixformat.style.spaces.insideEmptyBraces": false,
     "editor.detectIndentation": false,
     "editor.formatOnSave": true,
     "files.associations": {
