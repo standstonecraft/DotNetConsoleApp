@@ -49,9 +49,34 @@
 | ┃ ┣ 📜DotNetConsoleApp.Test.csproj | .NET プロジェクト(テスト）)  |
 | ┃ ┣ 📜exportCoverage.ps1           | カバレッジ出力スクリプト\*2  |
 | ┃ ┗ 📜unitTest.runsettings         | xUnit 設定                   |
+| ┣ 📜.editorconfig                  | .cs コーディングスタイル設定 |
 | ┣ 📜.gitignore                     | Git 無視設定                 |
 | ┣ 📜LICENSE                        | ライセンス                   |
 | ┗ 📜README.md                      | このファイル                 |
 
 \*1:現状はカバレッジレポート出力ツールのためだけに使用。  
 \*2:tasks.json で使用。
+
+## Code inspection and formatting
+
+コーディングスタイルの検査とフォーマットの設定を `.editorconfig` で行っている。
+この設定を Omnisharp 拡張で読み込ませるため、 `%USERPROFILE%\.omnisharp`
+に下記のファイルを配置する。またここで Omnisharp 用の設定も記述する。
+
+omnisharp.json
+
+```json
+{
+  "$desc": [
+    "設定項目はこちらを参照",
+    "https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options"
+  ],
+  "RoslynExtensionsOptions": {
+    "enableAnalyzersSupport": true
+  },
+  "FormattingOptions": {
+    "enableEditorConfigSupport": true,
+    "OrganizeImports": true
+  }
+}
+```
