@@ -1,58 +1,58 @@
 {
-    "$desc": [
-        "VS Code のワークスペース設定。ユーザー設定よりも優先される。",
-        "コーディングスタイルやビルド方法の統一のためソースと一緒に管理している。"
-    ],
-    "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
+  "$desc": [
+    "VS Code のワークスペース設定。ユーザー設定よりも優先される。",
+    "コーディングスタイルやビルド方法の統一のためソースと一緒に管理している。"
+  ],
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "csharp.semanticHighlighting.enabled": true,
+  "csharp.unitTestDebuggingOptions": {
+    "logging": {
+      "engineLogging": true,
+      "moduleLoad": false
     },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[sql]": {
-        "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
-    },
-    "[xml]": {
-        "editor.defaultFormatter": "DotJoshJohnson.xml"
-    },
-    "csharp.semanticHighlighting.enabled": true,
-    "csharp.unitTestDebuggingOptions": {
-        "logging": {
-            "engineLogging": true,
-            "moduleLoad": false
-        },
-        "type": "clr"
-    },
-    "editor.detectIndentation": false,
-    "editor.formatOnSave": true,
-    "files.associations": {
-        "*.runsettings": "xml",
-        "Doxyfile": "ini"
-    },
-    "files.exclude": {
-        "*/bin": true,
-        "*/obj": true
-    },
-    "mssql.connections": [
-        {
-            "authenticationType": "SqlLogin",
-            "database": "Database1",
-            "password": "password",
-            "profileName": "WINDEV2006EVAL\\SQLEXPRESS",
-            "server": "WINDEV2006EVAL\\SQLEXPRESS",
-            "user": "user1"
-        }
-    ],
-    "mssql.format.datatypeCasing": "lowercase",
-    "mssql.format.keywordCasing": "uppercase",
-    "mssql.format.placeSelectStatementReferencesOnNewLine": true,
-    "omnisharp.enableEditorConfigSupport": true,
-    "omnisharp.enableRoslynAnalyzers": true,
-    "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
-    "sql-formatter.dialect": "pl/sql",
-    "sql-formatter.uppercase": true,
-    "window.zoomLevel": 1
+    "type": "clr"
+  },
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.runsettings": "xml",
+    "Doxyfile": "ini"
+  },
+  "files.exclude": {
+    "*/bin": true,
+    "*/obj": true
+  },
+  "mssql.connections": [
+    {
+      "authenticationType": "SqlLogin",
+      "database": "Database1",
+      "password": "password",
+      "profileName": "WINDEV2006EVAL\\SQLEXPRESS",
+      "server": "WINDEV2006EVAL\\SQLEXPRESS",
+      "user": "user1"
+    }
+  ],
+  "mssql.format.datatypeCasing": "lowercase",
+  "mssql.format.keywordCasing": "uppercase",
+  "mssql.format.placeSelectStatementReferencesOnNewLine": true,
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.testRunSettings": "DotNetConsoleApp/test/unitTest.runsettings",
+  "sql-formatter.dialect": "pl/sql",
+  "sql-formatter.uppercase": true,
+  "editor.tabSize": 2
 }
