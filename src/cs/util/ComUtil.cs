@@ -45,23 +45,33 @@ namespace DotNetConsoleApp {
     /// </summary>
     /// <returns>カレントディレクトリ</returns>
     public static string GetCurrentDir() {
+      return GetCurrentDir(GetStage());
+    }
+
+    /// <summary>
+    /// ステージングに対応したカレントディレクトリを取得します。  
+    /// (ステージング及び実行方法によって .exe の位置が異なるため)
+    /// </summary>
+    /// <param name="stage"></param>
+    /// <returns>カレントディレクトリ</returns>
+    public static string GetCurrentDir(string stage) {
       string dir;
-      switch (GetStage()) {
+      switch (stage) {
         case "DEV":
-          dir = Directory.GetCurrentDirectory() + "./";
+          dir = Directory.GetCurrentDirectory() + "/./";
           break;
         case "TEST":
-          dir = Directory.GetCurrentDirectory() + "../../../../../";
+          dir = Directory.GetCurrentDirectory() + "/../../../../";
           break;
         case "PROD":
-          dir = Directory.GetCurrentDirectory() + "./";
+          dir = Directory.GetCurrentDirectory() + "/./";
           break;
         default:
           // test in contextコマンドでは環境変数がセットされていないためTESTとみなす
-          dir = Directory.GetCurrentDirectory() + "../../../../../";
+          dir = Directory.GetCurrentDirectory() + "/../../../../";
           break;
       }
-      return dir;
+      return Path.GetFullPath(dir);
     }
   }
 }
