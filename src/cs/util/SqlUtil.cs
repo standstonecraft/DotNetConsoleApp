@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Text;
 using Dapper;
 namespace DotNetConsoleApp {
@@ -108,56 +107,29 @@ namespace DotNetConsoleApp {
       }
 
       string pascalDaoName = daoName;
-      StringBuilder paramSb = new StringBuilder();
-      StringBuilder setSb = new StringBuilder();
       StringBuilder memberSb = new StringBuilder();
-      int memberCount = 0;
       foreach (TableColumn col in enumerable) {
         string csType = "";
         csType = ConvertTypeName(col.SystemTypeName);
-        string pascalColName = ToPascalCase(col.Name);
         memberSb.AppendLine($"        /// <summary>{col.Name}:{col.SystemTypeName}</summary>");
-        memberSb.AppendLine($"        public {csType} {pascalColName} {{get;}}");
-        memberSb.AppendLine();
-        paramSb.Append($"{csType} {col.Name}, ");
-        if (memberCount % 4 == 3) {
-          paramSb.AppendLine();
-          paramSb.Append("                        ");
-        }
-        memberCount++;
-        setSb.AppendLine($"            this.{pascalColName} = {col.Name};");
+        memberSb.AppendLine($"        public {csType} {col.Name} {{get;}}");
       }
-      paramSb.Remove(paramSb.Length - 2, 2);
-      paramSb.AppendLine(")");
 
       StringBuilder result = new StringBuilder();
       result.AppendLine("using System;");
       result.AppendLine("namespace DotNetConsoleApp.Dao");
       result.AppendLine("{");
+      result.AppendLine("    /// <summary>");
+      result.AppendLine("    /// コンストラクタを生成するにはプロパティすべてを囲んで Ctrl+.  ");
+      result.AppendLine("    /// Equals および HashCode を生成するにはクラス名を選択して Ctrl+.");
+      result.AppendLine("    /// </summary>");
       result.AppendLine("    public sealed class " + pascalDaoName);
       result.AppendLine("    {");
       result.Append(memberSb);
-      result.Append($"        public {pascalDaoName}(");
-      result.Append(paramSb);
-      result.AppendLine("        {");
-      result.Append(setSb);
-      result.AppendLine("        }");
       result.AppendLine("    }");
       result.AppendLine("}");
 
       return result.ToString();
-    }
-
-    /// <summary>
-    /// "THE_String_VALUE => TheStringValue
-    /// </summary>
-    /// <param name="str">変換する文字列</param>
-    /// <returns>パスカルケースの文字列</returns>
-    private static string ToPascalCase(string str) {
-      string newStr = str.ToLower().Replace("_", " ");
-      TextInfo info = CultureInfo.CurrentCulture.TextInfo;
-      newStr = info.ToTitleCase(newStr).Replace(" ", string.Empty);
-      return newStr;
     }
 
     /// <summary>
