@@ -41,8 +41,8 @@
       "authenticationType": "SqlLogin",
       "database": "Database1",
       "password": "password",
-      "profileName": "WINDEV2006EVAL\\SQLEXPRESS",
-      "server": "WINDEV2006EVAL\\SQLEXPRESS",
+      "profileName": "WINDEV2007EVAL\\SQLEXPRESS",
+      "server": "WINDEV2007EVAL\\SQLEXPRESS",
       "user": "user1"
     }
   ],
