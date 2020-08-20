@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace DotNetConsoleApp {
 
   /// <summary>
@@ -12,9 +11,11 @@ namespace DotNetConsoleApp {
     /// </summary>
     /// <returns></returns>
     static void Main() {
+      NLog.Logger logger = LogUtil.Log;
 
-      Console.WriteLine("Hello World!");
-
+      logger.Info("Hello World!");
+      logger.Info($"Stage: {ComUtil.GetStage()}");
+      logger.Info($"Current directory: {ComUtil.GetCurrentDir()}");
     }
 
   }
