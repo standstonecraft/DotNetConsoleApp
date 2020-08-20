@@ -36,3 +36,6 @@ TestResults
 
 # doxygen
 document/html
+
+# Logs
+logs
