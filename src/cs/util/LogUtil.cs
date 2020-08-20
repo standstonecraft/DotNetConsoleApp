@@ -23,8 +23,8 @@ namespace DotNetConsoleApp {
         FileName = ComUtil.GetCurrentDir() + "logs/process_${date:format=yyyyMMdd}.log",
         ArchiveNumbering = ArchiveNumberingMode.Date,
         ArchiveFileName = "logs/sample.log.{#}",
-        ArchiveEvery = FileArchivePeriod.None,
-        MaxArchiveFiles = 20
+        ArchiveAboveSize = 20 * 1024 * 1024,
+        MaxArchiveFiles = 5
       };
       conf.AddRule(LogLevel.Debug, LogLevel.Fatal, logFile);
 
