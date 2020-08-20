@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-namespace Name {
+namespace DotNetConsoleApp.Test {
   public class TestTemplateTest : IDisposable {
 
     /// <summary>
