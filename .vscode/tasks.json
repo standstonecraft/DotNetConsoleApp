@@ -1,184 +1,184 @@
 {
-    "$desc": [
-        "VS Code で実行するタスクを定義する。基本的にはコマンドを実行しているだけ。"
-    ],
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "generate document",
-            "detail": "doxygenでドキュメントを生成する",
-            "type": "process",
-            "command": "C:/Program Files/doxygen/bin/doxygen.exe",
-            "args": [
-                "Doxyfile"
-            ],
-            "options": {
-                "cwd": "document"
-            },
-            "problemMatcher": [],
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            }
-        },
-        {
-            "label": "build src",
-            "detail": "ソースをコンパイルする",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "--nologo"
-            ],
-            "problemMatcher": "$msCompile",
-            "group": "build"
-        },
-        {
-            "label": "build test",
-            "detail": "テストをコンパイルする",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "/nowarn:msb4011",
-                "--nologo"
-            ],
-            "problemMatcher": "$msCompile",
-            "group": "build"
-        },
-        {
-            "label": "build",
-            "detail": "ソース/テストのコンパイル、ドキュメント生成",
-            "dependsOn": [
-                "generate document",
-                "build src",
-                "build test"
-            ],
-            "dependsOrder": "sequence",
-            "type": "shell",
-            "command": "echo 'build done.'",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            }
-        },
-        {
-            "label": "publish",
-            "detail": "デバッグ情報なしで出力する",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "publish",
-                "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
-                "/property:GenerateFullPaths=true",
-                "/property:DebugType=None",
-                "/property:DebugSymbols=false",
-                "/consoleloggerparameters:NoSummary",
-                "--nologo"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "clean build result",
-            "detail": "ビルド時の生成物を削除する",
-            "type": "shell",
-            "command": "Get-ChildItem */bin,*/obj,document/html | Remove-Item -Recurse",
-            "problemMatcher": []
-        },
-        {
-            "label": "clean test result",
-            "detail": "テスト結果をすべて削除する",
-            "type": "shell",
-            "command": "if(Test-Path ./test/TestResults){Remove-Item ./test/TestResults -Recurse}",
-            "problemMatcher": [],
-            "group": "test",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            }
-        },
-        {
-            "label": "run test",
-            "detail": "テストを実行する",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
-                "/nowarn:msb4011",
-                "--settings",
-                "test/unitTest.runsettings",
-                "--collect:\"XPlat Code Coverage\"",
-                "--nologo"
-            ],
-            "options": {
-                "env": {
-                    "DNCA_STAGE": "TEST"
-                }
-            },
-            "group": "test"
-        },
-        {
-            "label": "test report coverage",
-            "detail": "カバレッジレポートを出力する",
-            "type": "shell",
-            "command": ".",
-            "args": [
-                "./exportCoverage.ps1"
-            ],
-            "options": {
-                "cwd": "test"
-            },
-            "problemMatcher": [],
-            "group": "test"
-        },
-        {
-            "label": "test",
-            "detail": "テストを実行する(過去の結果を削除、カバレッジレポート出力)",
-            "dependsOn": [
-                "clean test result",
-                "run test",
-                "test report coverage"
-            ],
-            "dependsOrder": "sequence",
-            "type": "shell",
-            "command": "echo 'test task done'",
-            "problemMatcher": [],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            },
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            }
+  "$desc": [
+    "VS Code で実行するタスクを定義する。基本的にはコマンドを実行しているだけ。"
+  ],
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "generate document",
+      "detail": "doxygenでドキュメントを生成する",
+      "type": "process",
+      "command": "C:/Program Files/doxygen/bin/doxygen.exe",
+      "args": [
+        "Doxyfile"
+      ],
+      "options": {
+        "cwd": "document"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "build src",
+      "detail": "ソースをコンパイルする",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary",
+        "--nologo"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "build test",
+      "detail": "テストをコンパイルする",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary",
+        "/nowarn:msb4011",
+        "--nologo"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "build",
+      "detail": "ソース/テストのコンパイル、ドキュメント生成",
+      "dependsOn": [
+        "generate document",
+        "build src",
+        "build test"
+      ],
+      "dependsOrder": "sequence",
+      "type": "shell",
+      "command": "echo 'build done.'",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "publish",
+      "detail": "デバッグ情報なしで出力する",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "publish",
+        "${workspaceFolder}/src/${workspaceFolderBasename}.csproj",
+        "/property:GenerateFullPaths=true",
+        "/property:DebugType=None",
+        "/property:DebugSymbols=false",
+        "/consoleloggerparameters:NoSummary",
+        "--nologo"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "clean build result",
+      "detail": "ビルド時の生成物を削除する",
+      "type": "shell",
+      "command": "Get-ChildItem */bin,*/obj,document/html | Remove-Item -Recurse",
+      "problemMatcher": []
+    },
+    {
+      "label": "clean test result",
+      "detail": "テスト結果をすべて削除する",
+      "type": "shell",
+      "command": "if(Test-Path ./test/TestResults){Remove-Item ./test/TestResults -Recurse}",
+      "problemMatcher": [],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "run test",
+      "detail": "テストを実行する",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "test",
+        "${workspaceFolder}/test/${workspaceFolderBasename}.Test.csproj",
+        "/nowarn:msb4011",
+        "--settings",
+        "test/unitTest.runsettings",
+        "--collect:\"XPlat Code Coverage\"",
+        "--nologo"
+      ],
+      "options": {
+        "env": {
+          "DNCA_STAGE": "TEST"
         }
-    ]
+      },
+      "group": "test"
+    },
+    {
+      "label": "test report coverage",
+      "detail": "カバレッジレポートを出力する",
+      "type": "shell",
+      "command": ".",
+      "args": [
+        "./exportCoverage.ps1"
+      ],
+      "options": {
+        "cwd": "test"
+      },
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "test",
+      "detail": "テストを実行する(過去の結果を削除、カバレッジレポート出力)",
+      "dependsOn": [
+        "clean test result",
+        "run test",
+        "test report coverage"
+      ],
+      "dependsOrder": "sequence",
+      "type": "shell",
+      "command": "echo 'test task done'",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    }
+  ]
 }
