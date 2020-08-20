@@ -61,7 +61,6 @@
       "detail": "ソース/テストのコンパイル、ドキュメント生成",
       "dependsOn": [
         "generate document",
-        "build src",
         "build test"
       ],
       "dependsOrder": "sequence",
@@ -172,7 +171,7 @@
         "isDefault": true
       },
       "presentation": {
-        "echo": true,
+        "echo": false,
         "reveal": "always",
         "focus": true,
         "panel": "shared",
