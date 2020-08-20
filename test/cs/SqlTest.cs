@@ -23,8 +23,8 @@ namespace DotNetConsoleApp.Test {
     /// DB接続確認
     /// </summary>
     [Fact]
-    public void QueryRealTableTest() {
-      SqlUtil.DefaultConnection.Query("select * from SAMPLE_TABLE");
+    public void DbConnectionTest() {
+      SqlUtil.DefaultConnection.Query("select 1");
       // no exception
     }
 
